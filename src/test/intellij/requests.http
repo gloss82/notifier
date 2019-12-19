@@ -1,0 +1,36 @@
+### Ping
+GET {{api_url}}/ping
+
+> {%
+client.test("Request executed successfully", function() {
+    client.assert(response.status === 200, "Response status is not 200");
+    client.assert("OK" === response.body, "Response has invalid payload");
+});
+%}
+
+### Send message
+POST {{api_url}}/message/
+Content-Type: application/json
+
+{
+  "phone": "79630429597",
+  "content": "Test message1",
+  "importance": "INFO"
+}
+
+### Get message status
+GET {{api_url}}/message/eca7b5d8-32a6-4e8c-a36e-b0ebdb96ddab/status
+
+### Push subscribe
+POST {{api_url}}/push/
+Content-Type: application/json
+
+{
+  "phone": "79630429597",
+  "token": "ievie5AeS3MeChomerohgahph8joo1Igh7aefooweeRai5ohCaehoo"
+}
+
+### Push unsubscribe
+DELETE {{api_url}}/push/ievie5AeS3MeChomerohgahph8joo1Igh7aefooweeRai5ohCaehoo
+
+###
